@@ -1,0 +1,5 @@
+include requirements.txt
+include flexicodec/am.mvn
+include flexicodec/customized_sensevoice/am.mvn
+global-exclude __pycache__
+global-exclude *.py[co]
