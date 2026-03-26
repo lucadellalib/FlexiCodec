@@ -8,8 +8,9 @@ import numpy as np
 class FBankGen:
     def __init__(self, sr):
         import funasr
+        from pathlib import Path
         assert sr == 16000
-        cmvn_file = 'am.mvn'
+        cmvn_file = f'{str(Path(__file__).parent)}/am.mvn'
         self.frontend = funasr.frontends.wav_frontend.WavFrontend(
                 cmvn_file=cmvn_file,
                 n_mels=80,
