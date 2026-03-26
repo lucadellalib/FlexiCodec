@@ -14,4 +14,5 @@ setup(
         "huggingface_hub",
         "transformers",
     ],
+    include_package_data=True,
 )
