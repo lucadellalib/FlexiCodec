@@ -12,10 +12,10 @@ from torch import nn
 from dac.nn.layers import Snake1d
 from dac.nn.layers import WNConv1d
 from dac.nn.layers import WNConvTranspose1d
-from .dac_quantize import ResidualVectorQuantize
+from flexicodec.dac_quantize import ResidualVectorQuantize
 from easydict import EasyDict as edict
 import torch.nn.functional as F
-from .cnn import ConvNeXtBlock
+from flexicodec.cnn import ConvNeXtBlock
 
 def init_weights(m):
     if isinstance(m, nn.Conv1d):

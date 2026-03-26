@@ -6,7 +6,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from .compile import torch_compile_lazy
+from flexicodec.model_blocks.mimi.module.compile import torch_compile_lazy
 # from .compile import torch_compile_lazy
 
 

@@ -5,7 +5,7 @@ from torch.autograd import Function
 import torch.nn.functional as F
 from typing import List
 
-from .fsq_quantizer import FSQ
+from flexicodec.fsq_quantizer import FSQ
 
 class FSQWrapper(nn.Module):
     def __init__(self, input_dim, levels=[8,8,8,8,8], num_codebooks=1, **kwargs):

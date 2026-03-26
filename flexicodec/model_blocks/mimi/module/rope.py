@@ -5,7 +5,7 @@
 from torch import nn
 import math
 import torch
-from .compile import torch_compile_lazy
+from flexicodec.model_blocks.mimi.module.compile import torch_compile_lazy
 # from .compile import torch_compile_lazy
 
 

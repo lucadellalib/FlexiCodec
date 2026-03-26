@@ -16,7 +16,7 @@ from einops import rearrange
 from torch.nn.utils.rnn import pad_sequence
 # Import FunASR for direct model usage
 from funasr import AutoModel
-from .model_blocks.mimi.transformer import ProjectedTransformer, QueryTokenAggregator
+from flexicodec.model_blocks.mimi.transformer import ProjectedTransformer, QueryTokenAggregator
 
 @torch.no_grad()
 def _extract_semantic_code(

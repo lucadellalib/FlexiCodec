@@ -2,7 +2,7 @@
 import torch
 import time
 import torchaudio
-from .feature_extractors import FBankGen
+from flexicodec.feature_extractors import FBankGen
 from huggingface_hub import snapshot_download, hf_hub_download
 
 get_params = lambda model: sum(p.numel() for p in model.parameters()) / 1e6
@@ -28,7 +28,7 @@ def prepare_model(sensevoice_small_path=None, device='auto', ckpt_path=None, con
     def build_codec_model(config):
         from pathlib import Path
         import copy
-        from .modeling_flexicodec import FlexiCodec
+        from flexicodec.modeling_flexicodec import FlexiCodec
         codec_model_config = copy.deepcopy(config)
         codec_model = FlexiCodec(
             **codec_model_config
@@ -193,11 +193,13 @@ if __name__ == '__main__':
     model_dict = prepare_model()
     
     # Load a real audio file
-    audio_path = '/Users/jiaqi/Downloads/00000.wav'
+    audio_path = 'example.wav'
     audio, sample_rate = torchaudio.load(audio_path)
     # audio = torch.cat([audio, audio], dim=0)
     with torch.no_grad():
-        encoded_output = encode_flexicodec(audio, model_dict, sample_rate, num_quantizers=8, merging_threshold=0.91)
+        encoded_output = encode_flexicodec(audio, model_dict, sample_rate, num_quantizers=8, merging_threshold=0.85)
+        print(encoded_output['semantic_codes'].shape)
+        print(encoded_output['acoustic_codes'].shape)
         reconstructed_audio = model_dict['model'].decode_from_codes(
             semantic_codes=encoded_output['semantic_codes'],
             acoustic_codes=encoded_output['acoustic_codes'],

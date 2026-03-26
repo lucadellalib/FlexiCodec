@@ -19,10 +19,10 @@ import torch
 import torch.nn as nn
 from torch.nn import functional as F
 
-from .module.compile import no_compile
-from .module.gating import make_gating
-from .module.rope import RotaryEmbedding
-from .module.streaming import StreamingModule, StreamingContainer
+from flexicodec.model_blocks.mimi.module.compile import no_compile
+from flexicodec.model_blocks.mimi.module.gating import make_gating
+from flexicodec.model_blocks.mimi.module.rope import RotaryEmbedding
+from flexicodec.model_blocks.mimi.module.streaming import StreamingModule, StreamingContainer
 
 
 class LayerNormF32(nn.LayerNorm):
